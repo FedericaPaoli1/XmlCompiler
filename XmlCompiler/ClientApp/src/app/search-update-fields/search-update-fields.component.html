@@ -1,0 +1,35 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<form [formGroup]="form" #f="ngForm">
+  <h2>Write the field keys and values you want to modify</h2>
+  <div formArrayName="fields">
+    <div class="fields" *ngFor="
+          let field of form.controls['fields'].controls;
+          let fieldIndex = index
+        " [formGroupName]="fieldIndex">
+      <input placeholder="Name" formControlName="name">
+      <input placeholder="GroupId" formControlName="groupId">
+      <button class="remove" type="button" (click)="deleteChange(fieldIndex)"><i class="fa fa-eraser"></i></button>
+      <button class="options" type="button" (click)="optionsValues.open()"><i class="fa fa-filter"></i> More
+        options</button>
+      <ngx-smart-modal identifier="optionsValues" #optionsValues>
+        <div formArrayName="options">
+          <div class="options" *ngFor="
+              let option of field.get('options').controls;
+              let optionIndex = index
+            " [formGroupName]="optionIndex">
+            <label class="container"> Read-only <input type="checkbox" formControlName="isReadOnly"
+                (change)="changeReadOnly($event)" /> <span class="checkmark"></span></label>
+            <label class="container">Visible <input type="checkbox" formControlName="isVisible"
+                (change)="changeVisible($event)" /> <span class="checkmark"></span></label>
+            <label class="container">Mandatory <input type="checkbox" formControlName="isMandatory"
+                (change)="changeMandatory($event)" /> <span class="checkmark"></span></label>
+          </div>
+        </div>
+      </ngx-smart-modal>
+    </div>
+  </div>
+  <button class="newUpdate" (click)="changeField()"><i class="fa fa-plus"></i> New update</button>
+</form>
+<div class="form-group form-footer text-center">
+  <button class="btn" (click)="saveSearch(); modal.close();">SAVE <i class="fa fa-floppy-o"></i></button>
+</div>

@@ -1,0 +1,14 @@
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster">
+<div class="back">
+    <h1 class="w3-xxxlarge">{{title}}</h1>
+    <table>
+        <tr>
+            <th>Element</th>
+            <th class="action">Actions</th>
+        </tr>
+        <tr app-entity *ngFor="let entity of entities" [entity-data]="entity" (onDeleteEntity)="onDeleteEntity($event)"
+            (onSelectEntity)="onSelectEntity($event)">
+        </tr>
+    </table>
+</div>

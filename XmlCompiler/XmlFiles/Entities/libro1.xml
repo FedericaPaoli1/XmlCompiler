@@ -1,0 +1,7 @@
+<libro1 titolo="Clean Code" autore="Robert Cecil Martin">
+  <fields>
+    <field IsMandatory="False" IsVisible="True" IsReadOnly="True" GroupId="Chapters" Name="Chapter 1"/>
+    <field IsMandatory="False" IsVisible="True" IsReadOnly="True" GroupId="Chapters" Name="Chapter 2"/>
+    <field IsMandatory="False" IsVisible="True" IsReadOnly="True" GroupId="Chapters" Name="Chapter 3"/>
+  </fields>
+</libro1>

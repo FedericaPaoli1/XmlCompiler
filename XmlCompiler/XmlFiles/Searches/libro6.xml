@@ -1,0 +1,7 @@
+<libro6 titolo="Design Patterns" autore1="Erich Gamma" autore2="John Vlissides" autore3="Richard Helm" autore4="Ralph Johnson">
+  <fields>
+    <field IsMandatory="False" IsVisible="True" IsReadOnly="True" GroupId="Chapters" Name="Chapter 1"/>
+    <field IsMandatory="False" IsVisible="True" IsReadOnly="True" GroupId="Chapters" Name="Chapter 2"/>
+    <field IsMandatory="False" IsVisible="True" IsReadOnly="True" GroupId="Chapters" Name="Chapter 3"/>
+  </fields>
+</libro6>

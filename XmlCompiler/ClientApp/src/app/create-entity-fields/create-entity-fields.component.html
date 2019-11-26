@@ -1,0 +1,40 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<form [formGroup]="form">
+  <h2>Add any new field you want</h2>
+  <button class="add" (click)="addField()"><i class="fa fa-plus-square-o" aria-hidden="true"></i>
+  </button>
+  <div formArrayName="fields">
+    <div class="fields" *ngFor="
+          let field of form.controls['fields'].controls;
+          let fieldIndex = index
+        " [formGroupName]="fieldIndex">
+      <label>Name <input formControlName="name" /></label>
+      <label>GroupId <input formControlName="groupId" /></label>
+      <button type="button" class="remove" (click)="deleteField(fieldIndex)"><i class="fa fa-eraser"
+          aria-hidden="true"></i>
+      </button>
+      <button class="options" type="button" (click)="optionsValues.open()"><i class="fa fa-filter"></i> Add
+        Option</button>
+      <hr />
+      <ngx-smart-modal identifier="optionsValues" #optionsValues>
+        <div formArrayName="options">
+          <div class="options" *ngFor="
+            let option of field.get('options').controls;
+            let optionIndex = index
+          " [formGroupName]="optionIndex">
+            <label class="container"> Read-only <input type="checkbox" formControlName="isReadOnly"
+                (change)="changeReadOnly($event)" /> <span class="checkmark"></span></label>
+            <label class="container">Visible <input type="checkbox" formControlName="isVisible"
+                (change)="changeVisible($event)" /> <span class="checkmark"></span></label>
+            <label class="container">Mandatory <input type="checkbox" formControlName="isMandatory"
+                (change)="changeMandatory($event)" /> <span class="checkmark"></span></label>
+          </div>
+        </div>
+      </ngx-smart-modal>
+    </div>
+  </div>
+</form>
+<div class="form-group form-footer text-center">
+  <button class="btn save" (click)="saveField(); modal.close();">SAVE <i class="fa fa-floppy-o" aria-hidden="true"></i>
+  </button>
+</div>

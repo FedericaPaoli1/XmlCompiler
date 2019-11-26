@@ -1,0 +1,10 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<button class="attributes" (click)="attributesModal.open()">UPDATE ATTRIBUTES <i class="fa fa-arrow-down"></i></button>
+<ngx-smart-modal identifier="attributesModal" #attributesModal>
+    <app-entity-update-attributes [entityElement] = "entityElement" [modal]=attributesModal></app-entity-update-attributes>
+</ngx-smart-modal>
+
+<button class="fields" (click)="fieldsModal.open()">UPDATE FIELDS <i class="fa fa-arrow-down"></i></button>
+<ngx-smart-modal identifier="fieldsModal" #fieldsModal>
+    <app-entity-update-fields [entityElement] = "entityElement" [modal]=fieldsModal></app-entity-update-fields>
+</ngx-smart-modal>

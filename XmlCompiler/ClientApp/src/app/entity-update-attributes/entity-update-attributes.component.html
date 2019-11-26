@@ -1,0 +1,18 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<form [formGroup]="form" #f="ngForm">
+  <h2>Click and write the attribute keys and values you want to modify</h2>
+  <div formArrayName="attributes">
+    <div class="attributes" *ngFor="
+              let attribute of form.controls['attributes'].controls;
+              let i = index
+            " [formGroupName]="i">
+      <input placeholder="Key" formControlName="key">
+      <input placeholder="Value" formControlName="value">
+      <button class="remove" type="button" (click)="deleteChange(i)"><i class="fa fa-eraser"></i></button>
+    </div>
+  </div>
+  <button class="newUpdate" (click)="changeAttribute()"><i class="fa fa-plus"></i> New update</button>
+</form>
+<div class="btn-group form-group form-footer text-center">
+  <button class="btn" (click)="saveEntity(); modal.close();">SAVE <i class="fa fa-floppy-o"></i></button>
+</div>

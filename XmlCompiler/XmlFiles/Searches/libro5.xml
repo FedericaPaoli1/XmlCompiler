@@ -1,0 +1,7 @@
+<libro5 titolo="Principles of Concurrent And Distributed Programming" autore="M. Ben-Ari ">
+  <fields>
+    <field IsMandatory="False" IsVisible="True" IsReadOnly="True" GroupId="Chapters" Name="Chapter 1"/>
+    <field IsMandatory="False" IsVisible="True" IsReadOnly="True" GroupId="Chapters" Name="Chapter 2"/>
+    <field IsMandatory="False" IsVisible="True" IsReadOnly="True" GroupId="Chapters" Name="Chapter 3"/>
+  </fields>
+</libro5>

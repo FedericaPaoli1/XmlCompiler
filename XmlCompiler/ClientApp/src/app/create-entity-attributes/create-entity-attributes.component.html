@@ -1,0 +1,18 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<form [formGroup]="form" #f="ngForm">
+  <h2>Add any new attribute you want</h2>
+  <button class="add" (click)="addNewAttribute()"><i class="fa fa-plus-square-o" aria-hidden="true"></i>
+  </button> 
+  <div formArrayName="attributes" *ngFor="let attribute of form.controls['attributes'].controls; let i = index;trackBy:trackFn">
+    <div [formGroupName]="i"  style="display: flex">
+      <input placeholder="Key" formControlName="key">
+      <input placeholder="Value" formControlName="value">
+      <button type="button" class="remove" (click)="deleteAttribute(i)"><i class="fa fa-eraser" aria-hidden="true"></i>
+      </button>
+    </div>
+  </div>
+</form>
+<div class="form-group form-footer text-center">
+    <button class="btn save" (click)="saveAttribute(); modal.close();">SAVE <i class="fa fa-floppy-o" aria-hidden="true"></i>
+    </button>
+</div>

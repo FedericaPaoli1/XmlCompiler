@@ -1,0 +1,10 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<td>{{search.element}}</td>
+<td>
+    <button class="update" (click)="myModal.open()"><i class="fa fa-pencil"></i> UPDATE</button>
+    <ngx-smart-modal identifier="myModal" #myModal (onOpen)="getSearch()" (onClose)="saveSearch()">
+        <app-search-update [searchElement] = "search.element"></app-search-update>
+    </ngx-smart-modal>
+
+    <button class="delete" (click)="deleteSearch()"><i class="fa fa-trash"></i> DELETE</button>
+</td>

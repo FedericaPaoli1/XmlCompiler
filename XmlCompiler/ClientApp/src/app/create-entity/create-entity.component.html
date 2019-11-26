@@ -1,0 +1,39 @@
+<form [formGroup]="entityForm" (ngSubmit)="onSubmit()" #eForm="ngForm">
+    <div class="form-group">
+        <label class="el" for="element">Element</label>
+        <input #myInput (change)="handleChange(myInput.value, $event)" value="element" formControlName="element"
+            class="form-control" [ngClass]="{ 'is-invalid': (submitted || f.element.touched)  && f.element.errors }">
+        <div *ngIf="((submitted || !!f.element.touched) && !!f.element.errors)" class="invalid-input">
+            <div class="required" *ngIf="!!f.element.errors.required">Element is required</div>
+        </div>
+    </div>
+    <div class="form-group form-footer text-center">
+        <button class="btn btn-secondary" (click)="resetForm(eForm.form)">RESET</button>
+        <button type="button" class="btn btn-success" [disabled]="!entityForm.valid" (click)="completed.open()">SALVA</button>
+    </div>
+</form>
+<ngx-smart-modal identifier="completed" #completed (onCloseFinished)="saveAndContinue()">
+    <div class="header text-center">
+        <h4 class="title">Please confirm..</h4>
+    </div>
+    <div class="body">
+        Do you really want to compile an XML consisting of inserted entity components?
+    </div>
+    <div class="form-group form-footer text-center">
+        <button class="btn btnYesNo btn-success" (click)="saveEntity()">YES and SAVE</button>
+        <button class="btn btnYesNo btn-danger" (click)="completed.close()">NO, I want to continue inserting attributes and
+            fields</button>
+    </div>
+</ngx-smart-modal>
+
+<div class="btn-group">
+    <button [disabled]="!entityForm.valid" class="btn1" (click)="attributesModal.open()"><span>NEW ATTRIBUTES</span></button>
+    <ngx-smart-modal identifier="attributesModal" #attributesModal (onCloseFinished)="saveAttributes()">
+        <app-create-entity-attributes [modal]=attributesModal></app-create-entity-attributes>
+    </ngx-smart-modal>
+
+    <button [disabled]="!entityForm.valid" class="btn1" (click)="fieldsModal.open()"><span>NEW FIELDS</span></button>
+    <ngx-smart-modal identifier="fieldsModal" #fieldsModal (onCloseFinished)="saveFields()">
+        <app-create-entity-fields [modal]=fieldsModal></app-create-entity-fields>
+    </ngx-smart-modal>
+</div>

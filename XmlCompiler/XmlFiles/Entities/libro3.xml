@@ -1,0 +1,7 @@
+<libro3 titolo="Core Java for the Impatient" autore="Cay S. Horstmann">
+  <fields>
+    <field IsMandatory="False" IsVisible="True" IsReadOnly="True" GroupId="Chapters" Name="Chapter 1"/>
+    <field IsMandatory="False" IsVisible="True" IsReadOnly="True" GroupId="Chapters" Name="Chapter 2"/>
+    <field IsMandatory="False" IsVisible="True" IsReadOnly="True" GroupId="Chapters" Name="Chapter 3"/>
+  </fields>
+</libro3>
